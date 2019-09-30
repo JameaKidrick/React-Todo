@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
+import TodoForm from './components/TodoComponents/TodoForm'
 import './components/TodoComponents/Todo.css'
 
 // STEP 1: MAKE LIST
@@ -61,16 +62,25 @@ class App extends React.Component {
     })
   }
 
+  // STEP 15: ADD CLEAR FUNCTION THAT WILL ALLOW THE USER TO REMOVE ALL COMPLETED ITEMS THEN PASS AS PROPS TO TODOLIST
+  clearCompleted = () => {
+    this.setState({
+      List: this.state.List.filter(item => !item.completed)
+    })
+  }
+
 
   // STEP 3: RENDER/RETURN COMPONENT THAT WILL ITERATE OVER LIST ARRAY WHILE PASSING IN THE LIST AS A PROPS
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        <TodoForm addItem={this.addItem} />
         {/* STEP 8: PASS THE TOGGLE TO TODOLIST */}
         <TodoList 
         List={this.state.List}
         toggleTask={this.toggleTask}
+        clearCompleted={this.clearCompleted}
         />
       </div>
     );
