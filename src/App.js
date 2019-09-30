@@ -1,5 +1,6 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
+import './components/TodoComponents/Todo.css'
 
 // STEP 1: MAKE LIST
 const todoList = [
