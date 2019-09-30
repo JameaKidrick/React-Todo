@@ -49,6 +49,18 @@ class App extends React.Component {
     })
   }
 
+  // STEP 11: ADD ADDITEM FUNCTION THAT WILL BE PASSED DOWN TO THE TODOFORM AS A PROPS
+  addItem = itemName => {
+    const newItem = {
+      name: itemName,
+      id: Date.now(),
+      purchased: false
+    };
+    this.setState({
+      List: [...this.state.List, newItem]
+    })
+  }
+
 
   // STEP 3: RENDER/RETURN COMPONENT THAT WILL ITERATE OVER LIST ARRAY WHILE PASSING IN THE LIST AS A PROPS
   render() {
