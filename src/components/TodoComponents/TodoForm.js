@@ -17,21 +17,22 @@ class TodoForm extends React.Component {
     });
   }
 
+
   // STEP 14: ADD ON SUBMIT WHICH WILL ACTUALLY ADD THE NEW ITEM TO THE LIST USING THE PASSED PROPS ADDITEM FROM APP.JS
   submitItem = e => {
     e.preventDefault();
     this.props.addItem(this.state.item)
   }
 
-
   render(){
     return(
       <form onSubmit={this.submitItem}>
         <input
         type='text'
-        value={this.item}
         name='item'
-        onChange={this.handleChanges}
+        value={this.item}
+        onChange={this.handleChange}
+        placeholder='Add an item'
         />
         <button>Add Item</button>
       </form>

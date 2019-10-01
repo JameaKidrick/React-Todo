@@ -51,9 +51,9 @@ class App extends React.Component {
   }
 
   // STEP 11: ADD ADDITEM FUNCTION THAT WILL BE PASSED DOWN TO THE TODOFORM AS A PROPS
-  addItem = itemName => {
+  addItem = item => {
     const newItem = {
-      name: itemName,
+      task: item,
       id: Date.now(),
       purchased: false
     };
@@ -69,12 +69,12 @@ class App extends React.Component {
     })
   }
 
-
   // STEP 3: RENDER/RETURN COMPONENT THAT WILL ITERATE OVER LIST ARRAY WHILE PASSING IN THE LIST AS A PROPS
   render() {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
+        {console.log()}
         <TodoForm addItem={this.addItem} />
         {/* STEP 8: PASS THE TOGGLE TO TODOLIST */}
         <TodoList 

@@ -10,7 +10,7 @@ const Todo = props => {
     onClick={()=>props.toggleTask(props.item.id)}
     >
       {/* WILL SHOW EACH TASK NAME INDIVIDUALLY */}
-      {props.item.task}
+      <p>{props.item.task}</p>
     </div>
   )
 }
