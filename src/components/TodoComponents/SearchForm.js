@@ -21,6 +21,7 @@ const SearchForm = props => {
 
   const handleSubmit = e => {
     e.preventDefault();
+    props.editSearch(searchTerm)
   }
 
   return(

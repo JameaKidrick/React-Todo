@@ -27,7 +27,8 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      List: todoList
+      List: todoList,
+      Search: ''
     };
   }
 
@@ -70,18 +71,28 @@ class App extends React.Component {
     })
   }
 
+  editSearch = (word) => {
+    this.setState({
+      ...this.state, Search:word
+    })
+  } 
+  
   // STEP 3: RENDER/RETURN COMPONENT THAT WILL ITERATE OVER LIST ARRAY WHILE PASSING IN THE LIST AS A PROPS
   render() {
+    const filteredList = this.state.List.filter(task => {
+      return task.task.toLowerCase().includes(this.state.Search.toLowerCase())
+    })
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
         <SearchForm 
         List={this.state.List}
+        editSearch={this.editSearch}
         />
         <TodoForm addItem={this.addItem} />
         {/* STEP 8: PASS THE TOGGLE TO TODOLIST */}
         <TodoList 
-        List={this.state.List}
+        List={filteredList}
         toggleTask={this.toggleTask}
         clearCompleted={this.clearCompleted}
         />
