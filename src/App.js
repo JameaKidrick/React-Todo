@@ -1,6 +1,7 @@
 import React from 'react';
 import TodoList from './components/TodoComponents/TodoList'
 import TodoForm from './components/TodoComponents/TodoForm'
+import SearchForm from './components/TodoComponents/SearchForm'
 import './components/TodoComponents/Todo.css'
 
 // STEP 1: MAKE LIST
@@ -74,7 +75,9 @@ class App extends React.Component {
     return (
       <div>
         <h2>Welcome to your Todo App!</h2>
-        {console.log()}
+        <SearchForm 
+        List={this.state.List}
+        />
         <TodoForm addItem={this.addItem} />
         {/* STEP 8: PASS THE TOGGLE TO TODOLIST */}
         <TodoList 
